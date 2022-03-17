@@ -10,6 +10,8 @@
 
 namespace OxidCommunity\OcbClearTmp\Controller\Admin;
 
+use OxidEsales\Facts\Facts;
+
 /**
  * Class NavigationController
  *
@@ -118,7 +120,8 @@ class NavigationController extends NavigationController_parent
      */
     public function isEEVersion()
     {
-        return ('EE' === \OxidEsales\Facts\Facts::getEdition());
+        $oFacts = oxNew(Facts::class);
+        return ('EE' === $oFacts->getEdition());
     }
 
     /**
